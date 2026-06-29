@@ -47,21 +47,128 @@ body {
   z-index: 1000;
 }
 
-.mobile-links{
+
+#nav-bar {
+  background-color: var(--prussian-blue);
+  padding: 0.75rem 1.5rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+
+#nav-bar nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+
+#logo {
+  width: 50px;
+  height: auto;
+}
+
+
+/* Links desktop */
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--font-p);
+  font-weight: 600;
+  transition: color 0.0s ease;
+}
+
+/* Burger menu */
+.burger {
+  cursor: pointer;
+  color: var(--prussian-blue);
+  font-weight: bold;
+  font-family: var(--font-p);
+  display: none; /* default hidden di desktop */
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: var(--ivory-mist);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+  white-space: nowrap;
+  opacity: 1;
+}
+
+.burger.active {
+  background: var(--harvest-orange);
+  color: var(--prussian-blue);
+}
+
+/* Kontak menu hidden default */
+.nav-contacts {
+  display: none;
+  flex-direction: column;
+  background-color: var(--ivory-mist);
+  padding: 1rem 1.25rem;
+  border-radius: 1rem;
+  position: absolute;
+  top: 100%;
+  right: 1.5rem;
+  left: auto;
+  min-width: 12rem;
+  max-width: 13.5rem;
+  width: fit-content;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+  z-index: 999;
+}
+
+.nav-contacts.show {
+  display: flex; /* muncul saat toggle */
+}
+
+.nav-contacts a {
+  color: var(--carbon-black);
+  text-decoration: none;
+  padding: 0.75rem 0;
+  font-family: var(--font-p);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+
+.nav-contacts a:last-child {
+  border-bottom: none;
+}
+
+.nav-contacts a:hover {
+  color: var(--tangerine-dream);
+}
+
+.mobile-links {
   display: none;
 }
+
 
 nav {
   display: flex;
   justify-content: space-between; /* logo di kiri, link di kanan */
   align-items: center;            /* sejajar vertikal */
+  position: relative;
+  gap: 0.75rem;
 }
+
 
 .nav-links {
   display: flex;
   gap: 10px;
   padding-right: 60px;
 }
+
 
 nav a {
   text-decoration: none;
@@ -73,6 +180,7 @@ nav a {
   transition: all 0.3s ease;  /* animasi halus */
 }
 
+
 nav a:hover {
   background-color: var(--tangerine-dream); /* latar berubah saat hover */
   color: var(--carbon-black);               /* teks kontras */
@@ -80,16 +188,13 @@ nav a:hover {
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);    /* bayangan lembut */
 }
 
+
 #logo{
   width: 60px;
   height: auto;
   display: block;
   object-position: left;
 }
-
-
-
-
 
 /* =============================
    Style untuk Hero section/Home
@@ -129,414 +234,45 @@ nav a:hover {
   font-size: 20px;
 }
 
-/* =============================
-   Style untuk Why section
-   ============================= */
-#why {
-  cursor: default;
-  margin-top: 200px;
-}
-
-#why h2 {
-  font-family: var(--font-h2);
-  color: var(--prussian-blue);
-  font-size: 30px;
-  margin-bottom: 20px;
-  text-align: center;
-  display: inline-block;
-  border-bottom: 4px solid var(--harvest-orange);
-  padding-bottom: 5px;
-}
-
-#why .urgency-points {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 20px;
-  flex-direction: row;
-  width: 95%;
-  margin: 0 auto;
-}
-
-#why .urgency-points article {
-  flex: 1;
-  background-color: var(--papaya);
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  display: flex;
-  border: 2px solid transparent;
-  flex-direction: column;
-  transition: all 0.3s ease;
-  border: 2px solid var(--harvest-orange);
-}
-
-#why .urgency-points article {
-  display: flex;
-  flex-direction: column;   /* isi ditata vertikal */
-  align-items: center;      /* semua isi rata tengah */
-  justify-content: flex-start;
-  min-height: 250px;        /* biar semua card tingginya sama */
-}
-
-#why .urgency-points article img {
-  width: 70px;              /* ukuran icon seragam */
-  height: 70px;             /* tinggi sama dengan lebar */
-}
-
-
-#why .urgency-points article h3 {
-  min-height: 40px;
-  margin-bottom: 2px;
-  font-family: var(--font-h3);
-  color: var(--gunmetal-gray); /* ubah jadi gunmetal */
-}
-
-#why .urgency-points article p {
-  font-family: var(--font-p);
-  color: var(--carbon-black);        
-}
-
-/* ==============================
-   Style untuk OurConcept section
-   ============================== */
-#our-concept {
-  margin-top: 200px;
-}
-
-#our-concept h2 {
-  font-family: var(--font-h2);
-  color: var(--prussian-blue);
-  font-size: 30px;
-  margin-bottom: 20px;
-  text-align: center;
-  display: inline-block;
-  border-bottom: 4px solid var(--harvest-orange);
-  padding-bottom: 5px;  
-}
-
-#our-concept .concept-points {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 20px;
-  flex-direction: row;
-  width: 95%;
-  margin: 0 auto;
-}
-
-#our-concept p {
-  font-family: var(--font-p);
-  color: var(--carbon-black);        
-  width: 75%;
-  margin: 0 auto;
-}
-
-.program-pillars {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 20px;
-  flex-direction: row;
-  width: 95%;
-  margin: 0 auto;
-}
-
-.pillar-poin {
-  flex: 1;
-  background-color: var(--papaya);
-  padding: 25px;
-  margin-top: 20px;
-  border-radius: 12px;                 /* sudut lebih halus */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.12); /* bayangan lebih lembut */
-  display: flex;
-  flex-direction: column;
-  align-items: center;                 /* isi rata tengah */
-  text-align: center;                  /* teks rata tengah */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 2px solid var(--harvest-orange);
-}
-
-.pillar-poin h3 {
-  font-family: var(--font-h3);
-  color: var(--gunmetal-gray);
-  margin: 10px 0;
-  font-size: 22px;
-}
-
-.pillar-poin p {
-  font-family: var(--font-p);
-  color: var(--carbon-black);
-  line-height: 1.6;
-  max-width: 85%;                      /* biar teks tidak terlalu melebar */
-}
-
-.pillar-poin img {
-  width: 90px;
-  height: 90px;
-}
-
-.pillar-poin ul {
-  margin-top: 15px;
-  text-align: left;
-  margin-left: 20px;
-}
-
-.pillar-poin ul li {
-  position: relative;
-  padding-left: 20px;
-  margin-bottom: 10px;
-  font-family: var(--font-p);
-  color: var(--carbon-black);
-}
-
-/* ====================================
-   Style untuk Monthly Online Program
-   ==================================== */
-#monthly-online-program {
-  margin-top: 200px;
-}
-
-#monthly-online-program h2 {
-  font-family: var(--font-h2);
-  color: var(--prussian-blue);
-  font-size: 30px;
-  margin-bottom: 20px;
-  text-align: center;
-  display: inline-block;
-  border-bottom: 4px solid var(--harvest-orange);
-  padding-bottom: 5px;  
-}
-
-/* wrapper untuk artikel bagian atas */
-.online-program .top {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 20px;
-  flex-direction: row;
-  width: 95%;
-  margin: 0 auto;
-}
-
-/* wrapper untuk artikel bagian bawah */
-.online-program .bottom {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 20px;
-  flex-direction: row;
-  width: 95%;
-  margin: 20px auto 0 auto;
-}
-
-/* ubah warna h3 jadi gunmetal */
-.online-program h3 {
-  font-family: var(--font-h3);
-  color: var(--gunmetal-gray);
-  margin-bottom: 10px;
-}
-
-/* styling setiap card */
-.online-program article {
-  flex: 1; /* bikin semua card dalam baris punya lebar sama */
-  background-color: var(--papaya);
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  border: 2px solid var(--harvest-orange); /* border konsisten */
-  display: flex;
-  flex-direction: column;
-  align-items: center;   /* isi rata tengah */
-  text-align: center;    /* teks rata tengah */
-}
-
-.online-program article .top {
-  border: 2px solid var(--harvest-orange);
-}
-
-.online-program article p {
-  font-family: var(--font-p);
-  color: var(--carbon-black);        
-}
-
-.level-mapping {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-}
-
-.level-mapping h4 {
-  font-family: var(--font-h3);
-  color: var(--dark-wallnut);
-  margin-top: 10px;
-  background-color: var(--canary-yellow);
-  padding: 5px 10px;
-  border-radius: 5px;
-}
-
-.h4note {
-  text-align: center;
-  font-family: var(--font-h3);
-  color: var(--dark-wallnut);
-  background-color: var(--canary-yellow);
-  display: inline-block;
-  padding: 6px 12px;
-  margin-top: 12px;
-  border-radius: 6px;
-  font-weight: 600;
-  line-height: 1.4;
-  width: fit-content;
-}
-
-/* konsultasi pribadi card */
-#konsultasi-pribadi {
-  background-color: var(--sof-apricot);   /* warna beda dari card lain */
-  padding: 25px;
-  margin: 30px auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* bayangan lebih tegas */
-  width: 95%;
-  max-width: 1000px;
-  display: block;
-  border: 2px dashed var(--harvest-orange); /* border unik */
-  text-align: center; /* isi rata tengah */
-}
-
-
-
-.konsultasi-pribadi h3 {
-  font-family: var(--font-h3);
-  color: var(--gunmetal-gray);
-  margin-bottom: 15px;
-  font-size: 24px; /* lebih besar dari h3 lain */
-  text-transform: uppercase; /* tampil beda */
-  text-align: center;
-}
-
-.konsultasi-pribadi p {
-  font-family: var(--font-p);
-  color: var(--carbon-black);  
-  width: 80%;
-  text-align: center;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-/* ====================================
-   Image styling untuk semua section
-   ==================================== */
-.online-program article img {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 15px;
-}
-
-
-.online-program .konsultasi-pribadi img {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 15px;
-  display: block;
-  margin: 0 auto; /* bikin img rata tengah */
-}
-
 /* ================================
    Mobile responsive
    ================================ */
 @media (max-width: 768px) {
   #nav-bar {
-    flex-direction: column;
-    padding: 15px 0;
+    padding: 0.75rem 1rem;
   }
 
-  #why .urgency-points,
-  #our-concept .concept-points,
-  .program-pillars,
-  .online-program .top,
-  .online-program .bottom {
-    flex-direction: column;
-    gap: 15px;
+  #nav-bar nav {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
   }
 
-  #home h1 {
-    font-size: 36px;    
+  .nav-links {
+    display: none; /* sembunyikan link utama di mobile */
   }
-  #home h3 {
-    font-size: 18px;
+
+  .mobile-links {
+    display: block; /* tampilkan ikon rumah */
+  }
+
+  .burger {
+    display: block; /* tampilkan burger menu */
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
   }
   
-  body{
-    margin-left: 0px;
-    margin-right: 0px;
+  .sub-nav-bar{
+    display: flex;
+    flex-direction: row;
   }
 
-  #home h3 {
-    font-size: 18px;   /* turunin dari 18px */
+  .nav-contacts {
+    left: auto;
+    right: 2rem;
+    width: 10rem;
+    top: calc(100% + 1.5rem);
   }
-
-  #our-concept h2 {
-    max-width: 90%; /* biar tidak terlalu melebar di mobile */
-  }
-
-  #our-concept p{
-    width: fit-content;
-  }
-
-  h3 {
-    font-size: 20px;
-  }
-
-  h2{
-    font-size: 25px;
-  }
-
-  p {
-    font-size: 15px;
-    max-width: 95%;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-  } 
-
-#konsultasi-pribadi {
-  width: 90%;
-  max-width: 100%;       /* pastikan tidak lebih dari layar */
-  margin: 20px auto;
-  box-sizing: border-box; /* padding & border dihitung dalam width */
-}
-/*Navbar*/
-nav img{
-  width: 1px;
-  padding-left: 20px;
-}
-
-nav .mobile-links {
-  display: flex;
-  flex-direction: row;
-  gap: 5px;   /* jarak antar ikon lebih kecil */
-  justify-content: right;
-}
-
-.mobile-links img {
-  width: 30px;
-  margin: 0;   /* pastikan tidak ada margin */
-  padding: 0;  /* pastikan tidak ada padding */
-  display: block; /* hilangkan inline spacing bawaan */
-}
-
-  nav a {
-    transition: none;   /* matikan animasi */
-  }
-  nav a:hover {
-    background-color: inherit; /* biar nggak berubah */
-    color: inherit;
-    transform: none;
-    box-shadow: none;
-  }
-
-.nav-links{
-  display: none;
-}
-
 }
