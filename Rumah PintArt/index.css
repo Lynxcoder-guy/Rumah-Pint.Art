@@ -1,0 +1,527 @@
+/* =============================
+   Root color variables
+   ============================= */
+:root {
+  --prussian-blue: #001137ff;
+  --ivory-mist: rgb(255, 249, 231);
+  --papaya: #FFF0D5ff;
+  --harvest-orange: #ff7e1bff;
+  --canary-yellow: #fdf874ff;
+  --carbon-black: #232323ff;
+  --gunmetal-gray: #2B2A2A;
+  --ghost-white: #ebedf5ff;
+  /* Root untuk font*/
+  --font-h1: "Poppins", sans-serif;
+  --font-h2: "Nunito", sans-serif;
+  --font-h3: "Quicksand", sans-serif;
+  --font-p: "Open Sans", sans-serif;
+  /* Root untuk font size */
+  --font-h1-size: 3rem;
+  --font-h2-size: 2rem;
+  --font-h3-size: 1.8rem;
+  --font-h4-size: 1.5rem;
+  --font-p-size: 1rem;
+  --font-small-size: 0.9rem;
+  --font-xsmall-size: 0.8rem;
+  --font-hero-subtitle-size: 1.4rem;
+  --font-hero-tagline-size: 1.2rem;
+  --font-h3s: 1.8rem;
+  /*Root for shadow boxes*/
+  --shadow-box:0 14px 35px rgba(0, 0, 0, 0.07);
+}
+
+/* =============================
+   Body style
+   ============================= */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  background: var(--ivory-mist);
+}
+
+body {
+  background-color: var(--ivory-mist);
+  text-align: center;
+  margin: 0;
+  font-size: var(--font-p-size);
+}
+
+h1 {
+  font-size: var(--font-h1-size);
+  font-family: var(--font-h1);
+}
+
+h2 {
+  font-size: var(--font-h2-size);
+  font-family: var(--font-h2);
+}
+
+h3 {
+  font-size: var(--font-h3-size);
+  font-family: var(--font-h3);
+}
+
+p{
+  font-size: var(--font-p-size);
+  font-family: var(--font-p);
+}
+
+
+/* =============================
+   Style untuk nav-bar
+   ============================= */
+#nav-bar {
+  background-color: var(--prussian-blue);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: var(--font-p);
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin-top: 0;
+  padding: 12px 24px;
+  z-index: 1000;
+}
+
+#content-nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end; /* move content to the right */
+  gap: 2rem; /* smaller gap between items */
+  align-items: center;
+  width: auto;
+  margin-left: auto; /* ensure content is pushed to right of the nav */
+  margin-right: 2rem; /* pull 1rem more towards center */
+}
+
+/*===== Style untuk services ======*/
+.services {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto; /* don't force full width, allow buttons to size */
+  position: relative; /* for dropdown positioning */
+}
+
+.services button {
+  background: linear-gradient(to right, var(--papaya), var(--ivory-mist)); /* high-contrast, accessible */
+  color: var(--prussian-blue);
+  border: none;
+  font-family: var(--font-p);
+  font-weight: bold;
+  padding: 8px 14px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: var(--font-small-size);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  white-space: nowrap; /* keep the label on one line */
+  border-radius: 6px;
+  transition: transform 0.2s ease; /* smooth scaling on hover */
+}
+
+.services button:hover {
+  background-color: var(--harvest-orange);
+}
+
+.services.active > button {
+  background: var(--harvest-orange);
+  color: var(--ivory-mist);
+  transform: scale(1.05);
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px); /* place dropdown below the button with gap */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--prussian-blue);
+  min-width: 180px;
+  padding: 6px 0;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  z-index: 1100;
+}
+
+/* Default: dropdown hidden */
+.services .dropdown {
+  display: none;
+}
+
+/* Saat .services aktif, dropdown muncul */
+.services.active .dropdown {
+  display: block;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(to left, var(--papaya), var(--ivory-mist));
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  min-width: 240px;
+  padding: 8px 0;
+  z-index: 1100;
+}
+
+/* Arrow/Triangle at the top of dropdown */
+.services.active .dropdown::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid var(--ivory-mist);
+}
+
+.services.active .dropdown li a {
+  color: var(--prussian-blue);
+  padding: 6px 14px;
+  font-weight: bold;
+  display: block;
+}
+
+.services.active .dropdown li a:hover {
+  background-color: var(--harvest-orange);
+  color: var(--ivory-mist);
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+
+.dropdown li {
+  list-style: none;
+  padding: 6px 14px;
+}
+
+.dropdown li a {
+  color: var(--papaya);
+  text-decoration: none;
+  display: block;
+}
+
+#logo{
+  width: 5rem;
+  height: auto;
+  display: block;
+  object-position: left;
+}
+
+/* ==========================
+   Style for about-us section
+   ==========================*/
+.about-us-content {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: stretch;
+  gap: 1.5rem;
+  padding: 1.25rem;
+  width: 100%;
+  margin: 2rem 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(255,240,213,0.9));
+  border: 1px solid rgba(0, 17, 55, 0.08);
+  border-radius: 28px;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.07);
+}
+
+.about-us-text {
+  flex: 1;
+  padding: 1.6rem 1.8rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(245,245,245,0.92));
+  border-radius: 22px;
+  border-left: 5px solid var(--harvest-orange);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  position: relative;
+}
+
+.about-us-text h2 {
+  margin: 0 0 0.6rem;
+  color: var(--prussian-blue);
+  font-weight: 800;
+}
+
+.about-us-text p {
+  margin: 0;
+  line-height: 1.8;
+  color: var(--gunmetal-gray);
+}
+
+.mission-vision-image {
+  flex: 0 0 320px;
+  max-width: 320px;
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  border-radius: 22px;
+  object-fit: cover;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  border: 3px solid rgba(255, 255, 255, 0.95);
+}
+
+.content-section {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(255,240,213,0.9));
+  border-radius: 20px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+#scrolls {
+  display: flex;
+  gap: 1.2rem;
+  overflow-x: auto;
+  padding: 0.4rem 0.2rem 1rem;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+}
+
+#scrolls::-webkit-scrollbar {
+  height: 8px;
+}
+
+#scrolls::-webkit-scrollbar-thumb {
+  background: rgba(255, 126, 27, 0.45);
+  border-radius: 999px;
+}
+
+.point {
+  flex: 0 0 95%;
+  min-width: 95%;
+  max-width: 95%;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(145deg, rgba(255,255,255,0.96), rgba(248,248,248,0.95));
+  border-radius: 22px;
+  padding: 1.6rem 1.6rem;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 17, 55, 0.06);
+  scroll-snap-align: start;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.point:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
+}
+
+.point h3 {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+  color: var(--prussian-blue);
+}
+
+.point p {
+  margin: 0;
+  width: 90%;
+  font-weight: bold;
+  line-height: 1.7;
+  color: var(--gunmetal-gray);
+}
+
+.our-mission {
+  background-image: url('pics/community.webp');
+  background-repeat: no-repeat;   /* gambar tidak diulang */
+  background-position: center;    /* posisi gambar di tengah */
+  background-size: cover;         /* gambar menyesuaikan ukuran div */
+}
+
+.our-vision {
+  background-image: url('pics/inclusive-family2.webp');
+  background-repeat: no-repeat;   /* gambar tidak diulang */
+  background-position: center;    /* posisi gambar di tengah */
+  background-size: cover;         /* gambar menyesuaikan ukuran div */
+}
+
+.our-approach {
+  background-image: url('pics/family2.webp');
+  background-repeat: no-repeat;   /* gambar tidak diulang */
+  background-position: center;    /* posisi gambar di tengah */
+  background-size: cover;         /* gambar menyesuaikan ukuran div */
+}
+
+/* ========================
+   Style for contents 
+   ========================*/
+/* Style for therapy sessions */
+.content-section {
+  margin: 2rem auto;
+  padding: 2rem 1.5rem;
+  background: linear-gradient(135deg, var(--ivory-mist), var(--papaya));
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 17, 55, 0.06);
+}
+
+.content-section .options-btn {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.options-btn li {
+  list-style: none;
+  background: var(--harverst-orange);
+  border-radius: 8px;
+  border: none;
+  padding: 0.6rem 1.2rem;
+}
+
+.options-btn li a {
+  text-decoration: none;
+  color: var(--carbon-black);
+  font-weight: bold;
+  background: var(--harvest-orange);
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  font-family: var(--font-p);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* ========================
+   Style for whole content 
+   ========================*/
+#whole-content {
+  width: 98%;
+  max-width: 100%;
+  margin: auto;
+  padding: 20px;      /* ruang dalam */
+  border-radius: 10px; /* sudut membulat */
+  display: block;
+}
+
+.top-gradient {
+  background: linear-gradient(to bottom, var(--papaya), var(--ivory-mist) 50%, transparent 100%);
+}
+
+/* =============================
+   Style for offline schedule
+   ============================= */
+.offline-schedule {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 1.5rem;
+  padding: 1.25rem;
+  width: 100%;
+  margin: 2rem 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(255,240,213,0.9));
+  border: 1px solid rgba(0, 17, 55, 0.08);
+  border-radius: 28px;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.07);
+}
+
+.schedule-text {
+  flex: 1;
+  padding: 1.6rem 1.8rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(-145deg, rgba(255,255,255,0.95), rgba(245,245,245,0.92));
+  border-radius: 22px;
+  border-right: 5px solid var(--harvest-orange);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  position: relative;
+}
+
+.schedule-text h2 {
+  margin: 0 0 0.6rem;
+  color: var(--prussian-blue);
+  font-weight: 800;
+}
+
+.schedule-text p {
+  margin: 0;
+  line-height: 1.8;
+  color: var(--gunmetal-gray);
+}
+
+.mission-vision-image {
+  flex: 0 0 320px;
+  max-width: 320px;
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  border-radius: 22px;
+  object-fit: cover;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  border: 3px solid rgba(255, 255, 255, 0.95);
+}
+
+/* ================================
+   Style for offline schedule wrap
+   ================================ */
+.offline-schedule-warp{
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+}
+
+.offline-schedule-warp .cards{
+  background: linear-gradient(145deg, var(--ivory-mist), var(--papaya));
+  min-width: 98%;
+  box-shadow: var(--shadow-box);
+  margin: 0.4rem 0.2rem 1rem;
+  scroll-snap-align: start;
+  border-radius: 2rem;
+}
+
+/* =============================
+   Style untuk Hero section/Home
+   ============================= */
+#hero{
+  background-image: url('pics/inclusive family.webp'); 
+  background-repeat: no-repeat;   /* gambar tidak diulang */
+  background-position: center;    /* posisi gambar di tengah */
+  background-size: cover;         /* gambar menyesuaikan ukuran div */
+  margin-top: 8rem; /* beri jarak dari nav-bar */
+  text-align: center;
+  padding: 60px 20px; /* ruang dalam */
+  border-radius: 10px;
+  color: var(--ivory-mist);
+}
+
+
+/* ================================
+   Mobile responsive
+   ================================ */
+@media (max-width: 768px) {
+  .about-us-content {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .mission-vision-image {
+    flex-basis: auto;
+    max-width: 100%;
+  }
+
+  .about-us-text {
+    padding: 1.25rem;
+  }
+}
