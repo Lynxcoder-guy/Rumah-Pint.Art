@@ -185,6 +185,7 @@ p{
   min-width: 240px;
   padding: 8px 0;
   z-index: 1100;
+  cursor: pointer;
 }
 
 /* Arrow/Triangle at the top of dropdown */
@@ -205,6 +206,8 @@ p{
   color: var(--prussian-blue);
   padding: 6px 14px;
   font-weight: bold;
+  border: 2px dotted var(--harvest-orange);
+  border-radius: 6px;
   display: block;
 }
 
@@ -534,7 +537,7 @@ p{
 
 /*Rumah akademi styles*/
 .wrap-bottom li.rumah-akademi-poin1 {
-  background-image: url('pics/child-fun1.webp');
+  background-image: url('child-fun1.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
