@@ -734,7 +734,7 @@ p{
    Style untuk Hero section/Home
    ============================= */
 #hero{
-  background-image: url('pics/inclusive family.webp'); 
+  background-image: url('pics/indo-family2.webp'); 
   background-repeat: no-repeat;   /* gambar tidak diulang */
   background-position: center;    /* posisi gambar di tengah */
   background-size: cover;         /* gambar menyesuaikan ukuran div */
@@ -743,6 +743,12 @@ p{
   padding: 60px 20px; /* ruang dalam */
   border-radius: 10px;
   color: var(--ivory-mist);
+}
+
+#hero h1{
+  color: var(--prussian-blue);
+  border-bottom: 0.25rem solid #ff8a3d;
+  font-size: var(--font-h1-size);
 }
 
 
