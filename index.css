@@ -749,6 +749,7 @@ p{
   color: var(--prussian-blue);
   border-bottom: 0.25rem solid #ff8a3d;
   font-size: var(--font-h1-size);
+   width: fit-content;
 }
 
 
