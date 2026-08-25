@@ -750,6 +750,7 @@ p{
   border-bottom: 0.25rem solid #ff8a3d;
   font-size: var(--font-h1-size);
    width: fit-content;
+   text-align: center;
 }
 
 
