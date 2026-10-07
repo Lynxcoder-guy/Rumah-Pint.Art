@@ -735,23 +735,29 @@ p{
    ============================= */
 #hero{
   background-image: url('pics/indo-family2.webp'); 
+  background-color: var(--ivory-mist); /* fallback color */
   background-repeat: no-repeat;   /* gambar tidak diulang */
   background-position: center;    /* posisi gambar di tengah */
   background-size: cover;         /* gambar menyesuaikan ukuran div */
   margin-top: 8rem; /* beri jarak dari nav-bar */
   text-align: center;
-  padding: 60px 20px; /* ruang dalam */
+  padding: 60px 80px; /* ruang dalam */
   border-radius: 10px;
   color: var(--ivory-mist);
 }
 
-#hero h1{
+#hero .hero-content {
+  text-align: center; /* pastikan semua teks di dalamnya rata tengah */
+}
+
+#hero .hero-content h1 {
   color: var(--prussian-blue);
   border-bottom: 0.25rem solid #ff8a3d;
   font-size: var(--font-h1-size);
-   width: fit-content;
-   text-align: center;
+  width: fit-content;
+  margin: 0 auto; /* ini yang bikin h1 rata tengah */
 }
+
 
 
 /* ================================
