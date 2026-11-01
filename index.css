@@ -10,6 +10,7 @@
   --carbon-black: #232323ff;
   --gunmetal-gray: #2B2A2A;
   --ghost-white: #ebedf5ff;
+  --white: #ffffff;
   /* Root untuk font*/
   --font-h1: "Poppins", sans-serif;
   --font-h2: "Nunito", sans-serif;
@@ -41,7 +42,6 @@ html,
 body {
   max-width: 100%;
   overflow-x: hidden;
-  background: var(--ivory-mist);
 }
 
 html {
@@ -59,7 +59,7 @@ html {
 }
 
 body {
-  background-color: var(--ivory-mist);
+  background-color: var(--white);
   text-align: center;
   margin: 0;
   font-size: var(--font-p-size);
@@ -464,10 +464,6 @@ p{
   display: block;
 }
 
-.top-gradient {
-  background: linear-gradient(to bottom, var(--papaya), var(--ivory-mist) 50%, transparent 100%);
-}
-
 /* =============================
    Style for wrap-bottom (Rumah Akademi)
    Same as offline-schedule-warp
@@ -649,7 +645,7 @@ p{
 }
 
 .offline-schedule-warp::-webkit-scrollbar {
-  height: 8px;
+  height: 1px;
 }
 
 .offline-schedule-warp::-webkit-scrollbar-thumb {
@@ -667,7 +663,7 @@ p{
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: linear-gradient(145deg, rgba(255,255,255,0.96), rgba(248,248,248,0.95));
+  background: linear-gradient(circle, var(--ghost-white),  var(--ivory-mist));
   border-radius: 22px;
   padding: 1.6rem 1.6rem;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
