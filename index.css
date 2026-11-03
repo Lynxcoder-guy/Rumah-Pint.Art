@@ -254,6 +254,7 @@ p{
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.07);
 }
 
+
 .about-us-text {
   flex: 1;
   padding: 1.6rem 1.8rem;
@@ -318,6 +319,10 @@ p{
   border-radius: 999px;
 }
 
+.scroll-underline{
+    border-bottom: 0.3rem solid var(--harvest-orange);
+}
+
 .point {
   flex: 0 0 95%;
   min-width: 95%;
@@ -328,6 +333,7 @@ p{
   justify-content: center;
   align-items: center;
   text-align: center;
+  border-bottom: 2px solid var(--harvest-orange);
   background: linear-gradient(145deg, rgba(255,255,255,0.96), rgba(248,248,248,0.95));
   border-radius: 22px;
   padding: 1.6rem 1.6rem;
@@ -401,7 +407,6 @@ p{
   margin: 0 0 0.6rem;
   color: var(--prussian-blue);
   font-weight: 800;
-  border-bottom: 0.3rem solid var(--harvest-orange);
   padding-bottom: 0.3rem;
   display: inline-block;
 }
@@ -516,7 +521,7 @@ p{
 
 .wrap-bottom li h3 {
   margin: 0 0 0.6rem;
-  color: var(--ghost-white);
+  color: var(--prussian-blue);
   font-weight: 800;
   border-bottom: 0.3rem solid var(--harvest-orange);
   padding-bottom: 0.3rem;
@@ -528,7 +533,7 @@ p{
   width: 90%;
   font-weight: bold;
   line-height: 1.7;
-  color: var(--ghost-white);
+  color: var(--prussian-blue);
 }
 
 /*Rumah akademi styles*/
@@ -754,6 +759,15 @@ p{
   margin: 0 auto; /* ini yang bikin h1 rata tengah */
 }
 
+/* ================================
+   Reusables
+   ================================ */
+.underlined-text{
+  display: inline-block;
+  align-self: flex-start;
+  width: fit-content;
+  border-bottom: 0.3rem solid var(--harvest-orange);
+}
 
 
 /* ================================
